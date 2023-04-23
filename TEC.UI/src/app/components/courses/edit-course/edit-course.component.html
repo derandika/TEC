@@ -1,0 +1,65 @@
+<div class="container my-5">
+  <h4 class="mb-3">Edit Course</h4>
+  <div class="row">
+    <div class="col-6">
+      <form #form="ngForm" (ngSubmit)="updateCourse()">
+        <div class="mb-3">
+          <label for="id" class="form-label">Id</label>
+          <input
+            type="text"
+            readonly
+            class="form-control"
+            id="id"
+            required
+            name="id"
+            [(ngModel)]="courseDetails.id"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            required
+            name="title"
+            [(ngModel)]="courseDetails.title"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            required
+            name="description"
+            [(ngModel)]="courseDetails.description"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="startDate" class="form-label">Start Date</label>
+          <input
+            type="date"
+            class="form-control"
+            id="startDate"
+            required
+            name="startDate"
+            (ngModelChange)="courseDetails.startDate = $event"
+            [ngModel]="courseDetails.startDate | date : 'yyyy-MM-dd'"
+          />
+        </div>
+        <div class="mt-5">
+          <button type="submit" class="btn btn-dark">Save</button>
+          &nbsp;&nbsp;
+          <button
+            type="button"
+            class="btn btn-dark"
+            (click)="deleteCourse()">
+            Delete
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

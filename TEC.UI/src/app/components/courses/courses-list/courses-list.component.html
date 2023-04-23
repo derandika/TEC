@@ -1,0 +1,23 @@
+<div class="container my-5">
+  <table class="table table-secondary" *ngIf="courses && courses.length > 0">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Start Date</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of courses">
+        <td>{{ course.id }}</td>
+        <td>{{ course.title }}</td>
+        <td>{{ course.description }}</td>
+        <td>{{ course.startDate | date:'mediumDate'}}</td>
+        <td><a [routerLink]="['/courses', 'edit', course.id]">View</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="!courses || courses.length <=0 ">No Courses</p>
+</div>
